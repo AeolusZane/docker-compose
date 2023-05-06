@@ -1,0 +1,27 @@
+version: "1"
+
+services:
+  product-server:
+    build: ./server
+    image: aeolusjzane/dockercompose:server
+    ports:
+      - "5001:80"
+
+  product-web:
+    image: nginx:alpine
+    ports:
+      - "5000:80"
+    volumes:
+      - ./dist:/usr/share/nginx/html
+    depends_on:
+      - product-server
+
+  nginx-gateway:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+    depends_on:
+      - product-server
+      - product-web
