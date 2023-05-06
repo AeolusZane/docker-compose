@@ -1,14 +1,15 @@
-# Procedure
+# docker-compose
+## Procedure
 1.前台打包，进入front目录
 `yarn install && yarn build`
 
 2.docker compose启动
 `docker compose up`
 
-# Access
+## Access
 本地网页访问 http://localhost
 
-# Description
+## Description
     服务端 
     - server: 会通过docker hub在我的仓库拉取部署
 
